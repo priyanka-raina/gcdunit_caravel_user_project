@@ -9,7 +9,7 @@ gds_path="$base_dir/$build_target/*-signoff/outputs/design-merged.gds"
 lef_path="$base_dir/$build_target/*-signoff/outputs/design.lef"
 def_path="$base_dir/$build_target/*-signoff/outputs/design.def.gz"
 gl_path="$base_dir/$build_target/*-signoff/outputs/design.vcs.v"
-rtl_path="$base_dir/$build_target/3-rtl/outputs/design.v"
+rtl_path="$base_dir/$build_target/4-rtl/outputs/design.v"
 spi_path="$base_dir/$build_target/*-gds2spice/outputs/design_extracted.spice"
 
 # Create file names
