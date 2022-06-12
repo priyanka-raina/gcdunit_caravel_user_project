@@ -9,6 +9,7 @@ gds_path="$base_dir/$build_target/*-signoff/outputs/design-merged.gds"
 lef_path="$base_dir/$build_target/*-signoff/outputs/design.lef"
 def_path="$base_dir/$build_target/*-signoff/outputs/design.def.gz"
 gl_path="$base_dir/$build_target/*-signoff/outputs/design.vcs.v"
+spef_path="$base_dir/$build_target/*-signoff/outputs/design.spef.gz"
 rtl_path="$base_dir/$build_target/4-rtl/outputs/design.v"
 spi_path="$base_dir/$build_target/*-gds2spice/outputs/design_extracted.spice"
 
@@ -18,6 +19,7 @@ gds_file="./gds/$top.gds"
 lef_file="./lef/$top.lef"
 def_file="./def/$top.def.gz"
 gl_file="./verilog/gl/$top.v"
+spef_file="./spef/$top.spef.gz"
 rtl_file="./verilog/rtl/$top.v"
 spi_file="./spi/lvs/$top.spice"
 
@@ -38,6 +40,10 @@ if [ -f $gl_file ]; then
       rm -rf $gl_file
       echo "Removed existing $gl_file"
 fi
+if [ -f $spef_file ]; then
+      rm -rf $spef_file
+      echo "Removed existing $spef_file"
+fi
 if [ -f $rtl_file ]; then
       rm -rf $rtl_file
       echo "Removed existing $rtl_file"
@@ -57,6 +63,8 @@ cp $def_path $def_file
 echo "Moving $gl_path to $gl_file"
 cp $gl_path $gl_file
 echo "Moving $rtl_path to $rtl_file"
+echo "Moving $spef_path to $spef_file"
+cp $spef_path $spef_file
 cp $rtl_path $rtl_file
 #echo "Moving $spi_path to $spi_file"
 #cp $spi_path $spi_file
@@ -64,3 +72,5 @@ cp $rtl_path $rtl_file
 #unzip .gz files
 echo "gunzip $def_file"
 gunzip $def_file
+echo "gunzip $spef_file"
+gunzip $spef_file
